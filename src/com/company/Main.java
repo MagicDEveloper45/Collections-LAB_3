@@ -36,9 +36,9 @@ public class Main {
             {
                 ArrListTests problem1 = new ArrListTests();
                 do {
-                    System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4");
+                    System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4, result - 5 ");
                     choose = Integer.parseInt(in.nextLine());
-                }while (choose <= 0 && choose >= 5);
+                }while (choose <= 0 && choose >= 6);
 
                 switch (choose)
                 {
@@ -55,9 +55,9 @@ public class Main {
              {
                  LinkedListTests problem2 = new LinkedListTests();
                  do {
-                     System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4");
+                     System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4, result - 5 ");
                      choose = Integer.parseInt(in.nextLine());
-                 }while (choose <= 0 && choose >= 5);
+                 }while (choose <= 0 && choose >= 6);
 
                  switch (choose)
                  {
