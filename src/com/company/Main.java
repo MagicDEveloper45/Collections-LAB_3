@@ -14,7 +14,7 @@ public class Main {
         linkedListTests.ShowResult();
         arrListTests.ShowResult();
 
-        System.out.println("\n\nResult");
+        System.out.println("\nResult");
         System.out.println("* Add: \n ArrayList: " + arrListTests.add + " ms, LinkedList " + linkedListTests.add + " ms" );
         System.out.println("* Get: \n ArrayList: " + arrListTests.get + " ms, LinkedList " + linkedListTests.get + " ms");
         System.out.println("* Clone: \n ArrayList: " + arrListTests.clone + " ns, LinkedList " + linkedListTests.clone + " ns" );
@@ -27,7 +27,7 @@ public class Main {
         int choose;
 
         do {
-            System.out.println("Choose type of collection \nArrayList - 1, LinkedList - 2, Show result - 3 \ninput:");
+            System.out.println("Choose type of collection \n* ArrayList - 1\n* LinkedList - 2\n* Show result - 3 \ninput:");
             choose = Integer.parseInt(in.nextLine());
         }while (choose <=0 && choose >=4);
 
@@ -37,7 +37,7 @@ public class Main {
             {
                 ArrListTests problem1 = new ArrListTests();
                 do {
-                    System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4, set - 5 result - 6 ");
+                    System.out.println("Choose method: \n*add - 1 \n*get - 2 \n*clone - 3 \n*remove - 4 \n*set - 5 \n*result - 6 ");
                     choose = Integer.parseInt(in.nextLine());
                 }while (choose <= 0 && choose >= 7);
 
@@ -51,13 +51,14 @@ public class Main {
                     case 6: problem1.ShowResult(); break;
                     default: return;
                 }
+                break;
 
             }
              case 2:
              {
                  LinkedListTests problem2 = new LinkedListTests();
                  do {
-                     System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4, set - 5, result - 6 ");
+                     System.out.println("Choose method: \n* add - 1 \n* get - 2 \n* clone - 3 \n* remove - 4 \n* set - 5 \n* result - 6 ");
                      choose = Integer.parseInt(in.nextLine());
                  }while (choose <= 0 && choose >= 7);
 

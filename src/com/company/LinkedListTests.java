@@ -18,6 +18,13 @@ public class LinkedListTests {
         arrList_CLONE();
         arrList_SET();
         arrList_REMOVE();
+
+        System.out.println("\nResult");
+        System.out.println("* Add: " + add + " ms" );
+        System.out.println("* Get: " + get + " ms");
+        System.out.println("* Clone: " + clone + " ns" );
+        System.out.println("* Set: " + set + " ns");
+        System.out.println("* Remove: " + remove + " ms,");
     }
 
     public void arrList_ADD()
