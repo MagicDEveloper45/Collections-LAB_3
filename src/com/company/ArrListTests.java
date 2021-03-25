@@ -9,13 +9,14 @@ public class ArrListTests {
      private final int arrListLenght = 1000;
 
      private long globalStart, globalFinish, globalElapsed;
-     public long add, get, clone, remove;
+     public long add, get, clone, set, remove;
 
      public void ShowResult()
      {
          arrList_ADD();
          arrList_GET();
          arrList_CLONE();
+         arrList_SET();
          arrList_REMOVE();
      }
 
@@ -143,6 +144,41 @@ public class ArrListTests {
 
         remove = globalElapsed / 1000000;
 
+    }
+
+    public void arrListSet(boolean way)
+    {
+        if (way == true)
+        {
+            randomInit();
+        }
+        arrList_SET();
+    }
+
+    private void arrList_SET()
+    {
+        System.out.println("\n 4. ArrayList set - tests");
+        globalStart = System.nanoTime();
+
+        // Test arraylist.set
+        for (int i = 0; i < arrListLenght / 2 - 1; i++) {
+            long start = System.nanoTime();
+
+            int value = 666;
+            arrayList.set(i, value);
+
+            long finish = System.nanoTime();
+            long elapsed = finish - start;
+
+            System.out.println(i + "th " + "add " + elapsed + " ns");
+        }
+
+        globalFinish = System.nanoTime();
+        globalElapsed = globalFinish - globalStart;
+
+        System.out.println("\nTotal time = " + globalElapsed + " ns, or ~ " + globalElapsed / 1000000 + " 1ms");
+
+        set = globalElapsed;
     }
 
     private void randomInit()

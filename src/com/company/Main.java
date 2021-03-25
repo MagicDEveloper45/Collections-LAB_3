@@ -14,10 +14,11 @@ public class Main {
         linkedListTests.ShowResult();
         arrListTests.ShowResult();
 
-        System.out.println("Result");
+        System.out.println("\n\nResult");
         System.out.println("* Add: \n ArrayList: " + arrListTests.add + " ms, LinkedList " + linkedListTests.add + " ms" );
         System.out.println("* Get: \n ArrayList: " + arrListTests.get + " ms, LinkedList " + linkedListTests.get + " ms");
         System.out.println("* Clone: \n ArrayList: " + arrListTests.clone + " ns, LinkedList " + linkedListTests.clone + " ns" );
+        System.out.println("* Set: \n ArrayList: " + arrListTests.set + " ns, LinkedList " + linkedListTests.set + " ns");
         System.out.println("* Remove: \n ArrayList: " + arrListTests.remove + " ms, LinkedList " + linkedListTests.remove + " ms");
     }
     public static void main(String[] args) {
@@ -36,9 +37,9 @@ public class Main {
             {
                 ArrListTests problem1 = new ArrListTests();
                 do {
-                    System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4, result - 5 ");
+                    System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4, set - 5 result - 6 ");
                     choose = Integer.parseInt(in.nextLine());
-                }while (choose <= 0 && choose >= 6);
+                }while (choose <= 0 && choose >= 7);
 
                 switch (choose)
                 {
@@ -46,7 +47,8 @@ public class Main {
                     case 2: problem1.arrListGet(true); break;
                     case 3: problem1.arrListClone(true); break;
                     case 4: problem1.arrListRemove(true); break;
-                    case 5: problem1.ShowResult(); break;
+                    case 5: problem1.arrListSet(true); break;
+                    case 6: problem1.ShowResult(); break;
                     default: return;
                 }
 
@@ -55,9 +57,9 @@ public class Main {
              {
                  LinkedListTests problem2 = new LinkedListTests();
                  do {
-                     System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4, result - 5 ");
+                     System.out.println("Choose method: add - 1, get - 2, clone - 3, remove - 4, set - 5, result - 6 ");
                      choose = Integer.parseInt(in.nextLine());
-                 }while (choose <= 0 && choose >= 6);
+                 }while (choose <= 0 && choose >= 7);
 
                  switch (choose)
                  {
@@ -65,12 +67,17 @@ public class Main {
                      case 2: problem2.arrListGet(true); break;
                      case 3: problem2.arrListClone(true); break;
                      case 4: problem2.arrListRemove(true); break;
-                     case 5: problem2.ShowResult(); break;
+                     case 5: problem2.arrListSet(true); break;
+                     case 6: problem2.ShowResult(); break;
                      default: return;
                  }
+                 break;
              }
-             case 3: ShowResult();
-            default: return;
+             case 3: {
+                 ShowResult();
+                 break;
+             }
+        default: return;
         }
 
 
