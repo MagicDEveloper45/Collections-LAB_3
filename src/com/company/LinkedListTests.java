@@ -2,15 +2,25 @@ package com.company;
 
 import java.util.LinkedList;
 
+/*
+  * @author Igor Lukin, github - MagicDEveloper45
+  * Class for demonstrating the time spent on calling methods for the LinkedList collection
+ */
+
 public class LinkedListTests {
 
     LinkedList<Integer> arrayList = new LinkedList<>();
 
-    private final int arrListLenght = 1000;
+    public final int arrListLenght = 1000; // lenght of array
 
-    private long globalStart, globalFinish, globalElapsed;
-    public long add, get, clone, set, remove;
+    private long globalStart, globalFinish, globalElapsed; // variables that store the starting, final, and elapsed time to execute each method in a specified amount
+    public long add, get, clone, set, remove; // variables that store the total time spent on the corresponding method
 
+
+   /*
+    * Summary
+    * Output of the time spent on each method
+    */
     public void ShowResult()
     {
         arrList_ADD();
@@ -27,6 +37,17 @@ public class LinkedListTests {
         System.out.println("* Remove: " + remove + " ms,");
     }
 
+    /*
+    * Summary
+    * In this method, the arrList is filled with random values. Inside the loop, the add() method is called and the time
+    * spent on a single method call is output and the total time is output
+    * @param leftBorder - the extreme minimum value for randomness
+    * @param rightBorder - the extreme maximum value for randomness
+    * @param value - variable for random number from 0 to 5000
+    * @param start - start of the iteration count
+    * @param finish - finish of the iteration count
+    * @param elapsed - time spent processing the method
+     */
     public void arrList_ADD()
     {
         System.out.println("\n 1. ArrayList add - tests");
@@ -37,7 +58,7 @@ public class LinkedListTests {
 
         for (int i = 0; i < arrListLenght;i++)
         {
-            int value =  leftBorder + (int) (Math.random() * rightBorder); // taking random number from 0 to 1000
+            int value =  leftBorder + (int) (Math.random() * rightBorder);
 
             long start = System.nanoTime();
 
@@ -58,6 +79,10 @@ public class LinkedListTests {
 
     }
 
+    /*
+    * initialization of the collection, for a private call, that is, a method call, without a pre-called arrList_ADD method.
+    * In other words, filling in an empty array to demonstrate
+    */
     public void arrListGet(boolean way)
     {
         if (way == true) {
@@ -65,7 +90,15 @@ public class LinkedListTests {
         }
         arrList_GET();
     }
-
+    /*
+    * Summary
+    * In this method, the next value is taken from the arrList. Inside the loop, the get() method is called and the time
+    * spent on a single method call is output and the total time is output
+    * @param start - start of the iteration count
+    * @param number - curr value from collection
+    * @param finish - finish of the iteration count
+    * @param elapsed - time spent processing the method
+    */
     private void arrList_GET()
     {
         System.out.println("\n 2. ArrayList get - tests");
@@ -93,6 +126,11 @@ public class LinkedListTests {
 
     }
 
+
+    /*
+     * initialization of the collection, for a private call, that is, a method call, without a pre-called arrList_ADD method.
+     * In other words, filling in an empty array to demonstrate
+     */
     public void arrListClone(boolean way)
     {
         if (way == true) {
@@ -101,6 +139,10 @@ public class LinkedListTests {
         arrList_CLONE();
     }
 
+    /*
+    * Summary
+    * In this method, one array is cloned to another and the total time is output
+    */
     private void arrList_CLONE()
     {
         System.out.println("\n 3. ArrayList clone - tests");
@@ -120,6 +162,10 @@ public class LinkedListTests {
 
     }
 
+    /*
+     * initialization of the collection, for a private call, that is, a method call, without a pre-called arrList_ADD method.
+     * In other words, filling in an empty array to demonstrate
+     */
     public void arrListRemove(boolean way)
     {
         if (way == true) {
@@ -127,7 +173,11 @@ public class LinkedListTests {
         }
         arrList_REMOVE();
     }
-
+    /*
+    * Summary
+    * In this method, the value is removed from the array and the memory cells are shifted using the method remove()
+    * and the total time is output
+    * */
     private void arrList_REMOVE() {
         System.out.println("\n 4. ArrayList remove - tests");
         globalStart = System.nanoTime();
@@ -154,6 +204,10 @@ public class LinkedListTests {
     }
 
 
+    /*
+     * initialization of the collection, for a private call, that is, a method call, without a pre-called arrList_ADD method.
+     * In other words, filling in an empty array to demonstrate
+     */
     public void arrListSet(boolean way)
     {
         if (way == true)
@@ -163,6 +217,15 @@ public class LinkedListTests {
         arrList_SET();
     }
 
+    /*
+    * Summary
+    * In this method the value is placed in the array and the memory cells are shifted using the set method
+    * and the total time is output
+    * @param start - start of the iteration count
+    * @param value - value for cells of collection
+    * @param finish - finish of the iteration count
+    * @param elapsed - time spent processing the method
+    * */
     private void arrList_SET()
     {
         System.out.println("\n 4. ArrayList set - tests");
@@ -189,6 +252,12 @@ public class LinkedListTests {
         set = globalElapsed;
     }
 
+    /*
+    * This method fills the array with random values used for a modular (separate) call to a single method
+    * @param leftBorder - the extreme minimum value for randomness
+    * @param rightBorder - the extreme maximum value for randomness
+    * @param value - variable for random number from 0 to 5000
+    * */
     private void randomInit()
     {
         int leftBorder = 0;
@@ -196,7 +265,7 @@ public class LinkedListTests {
 
         for (int i = 0; i < arrListLenght;i++)
         {
-            int value =  leftBorder + (int) (Math.random() * rightBorder); // taking random number from 0 to 1000
+            int value =  leftBorder + (int) (Math.random() * rightBorder);
             arrayList.add(i, value);
         }
     }

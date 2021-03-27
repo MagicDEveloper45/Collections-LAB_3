@@ -6,6 +6,10 @@ import java.util.Scanner;
 
 public class Main {
 
+    /*
+    * Summary
+    * Comparison of collection performance
+    * */
     public static void ShowResult()
     {
         LinkedListTests linkedListTests = new LinkedListTests();
@@ -15,11 +19,11 @@ public class Main {
         arrListTests.ShowResult();
 
         System.out.println("\nResult");
-        System.out.println("* Add: \n ArrayList: " + arrListTests.add + " ms, LinkedList " + linkedListTests.add + " ms" );
-        System.out.println("* Get: \n ArrayList: " + arrListTests.get + " ms, LinkedList " + linkedListTests.get + " ms");
-        System.out.println("* Clone: \n ArrayList: " + arrListTests.clone + " ns, LinkedList " + linkedListTests.clone + " ns" );
-        System.out.println("* Set: \n ArrayList: " + arrListTests.set + " ns, LinkedList " + linkedListTests.set + " ns");
-        System.out.println("* Remove: \n ArrayList: " + arrListTests.remove + " ms, LinkedList " + linkedListTests.remove + " ms");
+        System.out.println("* Add: \n ArrayList: " + arrListTests.add + " ms, LinkedList " + linkedListTests.add + " ms, " + "per " + linkedListTests.arrListLenght + " iterations" );
+        System.out.println("* Get: \n ArrayList: " + arrListTests.get + " ms, LinkedList " + linkedListTests.get + " ms, " + "per " + linkedListTests.arrListLenght + " iterations");
+        System.out.println("* Clone: \n ArrayList: " + arrListTests.clone + " ns, LinkedList " + linkedListTests.clone + " ns, " + "per 1 iteration" );
+        System.out.println("* Set: \n ArrayList: " + arrListTests.set + " ns, LinkedList " + linkedListTests.set + " ns, " + "per " + linkedListTests.arrListLenght / 2 + " iterations");
+        System.out.println("* Remove: \n ArrayList: " + arrListTests.remove + " ms, LinkedList " + linkedListTests.remove + " ms, " + "per " + linkedListTests.arrListLenght / 2 + " iterations");
     }
     public static void main(String[] args) {
 
