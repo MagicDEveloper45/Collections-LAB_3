@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /*
@@ -9,7 +10,7 @@ import java.util.LinkedList;
 
 public class LinkedListTests {
 
-    LinkedList<Integer> arrayList = new LinkedList<>();
+    LinkedList<Integer> linkedList = new LinkedList<Integer>();
 
     public final int arrListLenght = 1000; // lenght of array
 
@@ -51,24 +52,46 @@ public class LinkedListTests {
     public void arrList_ADD()
     {
         System.out.println("\n 1. ArrayList add - tests");
-        globalStart = System.nanoTime();
 
         int leftBorder = 0;
         int rightBorder = 5000;
 
-        for (int i = 0; i < arrListLenght;i++)
+        Iterator iterator = linkedList.iterator();
+        int counter = 0;
+
+        linkedList.add(2);
+
+        globalStart = System.nanoTime();
+
+        while (iterator.hasNext() && counter < arrListLenght - 1)
         {
             int value =  leftBorder + (int) (Math.random() * rightBorder);
 
             long start = System.nanoTime();
 
-            arrayList.add(i, value);
+            linkedList.add(value);
+
+            long finish = System.nanoTime();
+            long elapsed = finish - start;
+
+            System.out.println(counter + "th " + "add " + elapsed  + " ns");
+            counter++;
+
+        }
+
+        /*for (int i = 0; i < arrListLenght;i++)
+        {
+            int value =  leftBorder + (int) (Math.random() * rightBorder);
+
+            long start = System.nanoTime();
+
+            linkedList.add(i, value);
 
             long finish = System.nanoTime();
             long elapsed = finish - start;
 
             System.out.println(i + "th " + "add " + elapsed  + " ns");
-        }
+        }*/
 
         globalFinish = System.nanoTime();
         globalElapsed = globalFinish - globalStart;
@@ -104,18 +127,41 @@ public class LinkedListTests {
         System.out.println("\n 2. ArrayList get - tests");
         globalStart = System.nanoTime();
 
+        int leftBorder = 0;
+        int rightBorder = 5000;
+
+        Iterator iterator = linkedList.iterator();
+        int counter = 0;
+
+        while (iterator.hasNext() && counter < arrListLenght)
+        {
+            int value =  leftBorder + (int) (Math.random() * rightBorder);
+
+            long start = System.nanoTime();
+
+            linkedList.add(value);
+
+            long finish = System.nanoTime();
+            long elapsed = finish - start;
+
+            System.out.println(counter + "th " + "add " + elapsed  + " ns");
+            counter++;
+
+        }
+
+        /*
         // Test arraylist.get
         for (int i = 0; i < arrListLenght;i++)
         {
             long start = System.nanoTime();
 
-            int number = arrayList.get(i);
+            int number = linkedList.get(i);
 
             long finish = System.nanoTime();
             long elapsed = finish - start;
 
             System.out.println(i + "th " + "add " + elapsed  + " ns. Number = " + number);
-        }
+        }*/
 
         long globalFinish = System.nanoTime();
         long globalElapsed = globalFinish - globalStart;
@@ -151,7 +197,7 @@ public class LinkedListTests {
         LinkedList<Integer> arrayListClone = new LinkedList<Integer>();
 
         // Test arraylist.get
-        arrayListClone = (LinkedList)arrayList.clone();
+        arrayListClone = (LinkedList) linkedList.clone();
 
         globalFinish = System.nanoTime();
         globalElapsed = globalFinish - globalStart;
@@ -186,7 +232,7 @@ public class LinkedListTests {
         for (int i = 0; i < arrListLenght / 2 - 1; i++) {
             long start = System.nanoTime();
 
-            arrayList.remove(i);
+            linkedList.remove(i);
 
             long finish = System.nanoTime();
             long elapsed = finish - start;
@@ -236,7 +282,7 @@ public class LinkedListTests {
             long start = System.nanoTime();
 
             int value = 666;
-            arrayList.set(i, value);
+            linkedList.set(i, value);
 
             long finish = System.nanoTime();
             long elapsed = finish - start;
@@ -266,7 +312,7 @@ public class LinkedListTests {
         for (int i = 0; i < arrListLenght;i++)
         {
             int value =  leftBorder + (int) (Math.random() * rightBorder);
-            arrayList.add(i, value);
+            linkedList.add(i, value);
         }
     }
 
